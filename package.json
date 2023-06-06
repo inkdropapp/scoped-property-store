@@ -2,9 +2,8 @@
   "name": "scoped-property-store",
   "version": "0.17.0",
   "description": "Store and retrieve properties associated with CSS selectors.",
-  "main": "./lib/scoped-property-store",
+  "main": "./src/scoped-property-store",
   "scripts": {
-    "prepublish": "grunt clean lint coffee",
     "test": "jasmine-focused --captureExceptions --forceexit spec"
   },
   "repository": {
