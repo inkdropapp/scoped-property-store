@@ -1,6 +1,6 @@
 {
   "name": "@inkdropapp/scoped-property-store",
-  "version": "0.17.0",
+  "version": "0.18.0",
   "description": "Store and retrieve properties associated with CSS selectors.",
   "main": "./src/scoped-property-store",
   "scripts": {
