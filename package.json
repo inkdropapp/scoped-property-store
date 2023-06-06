@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/atom/scoped-property-store.git"
+    "url": "https://github.com/inkdropapp/scoped-property-store.git"
   },
   "bugs": {
-    "url": "https://github.com/atom/scoped-property-store/issues"
+    "url": "https://github.com/inkdropapp/scoped-property-store/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/atom/scoped-property-store/raw/master/LICENSE.md"
+      "url": "http://github.com/inkdropapp/scoped-property-store/raw/master/LICENSE.md"
     }
   ],
   "dependencies": {
@@ -24,10 +24,11 @@
     "event-kit": "^2.5.3",
     "grim": "^2.0.3",
     "key-path-helpers": "^0.4.0",
-    "underscore-plus": "^1.7.0"
+    "lodash.assignin": "^4.2.0"
   },
   "devDependencies": {
     "jasmine-focused": "^1.0.7",
+    "prettier": "^2.8.8",
     "rimraf": "^5.0.1",
     "temp": "^0.9.4"
   }

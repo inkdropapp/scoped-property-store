@@ -5,10 +5,11 @@
  * DS207: Consider shorter variations of null checks
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/main/docs/suggestions.md
  */
-const {splitKeyPath} = require('key-path-helpers');
+const { splitKeyPath } = require('key-path-helpers')
 
 // Public: Check if `value` is an {Object}
-const isPlainObject = value => (value != null ? value.constructor : undefined) === Object;
+const isPlainObject = value =>
+  (value != null ? value.constructor : undefined) === Object
 
 // Public: Get an object's value for a given key-path, and also an indication
 // of whether or not the object would affect the key-path in a deep-merge.
@@ -22,49 +23,52 @@ const isPlainObject = value => (value != null ? value.constructor : undefined) =
 //      of `object`'s children on the key-path is not an {Object}.
 //   * `false` if the object would not alter the given key-path if deep-merged
 //     into another {Object}.
-const checkValueAtKeyPath = function(object, keyPath) {
+const checkValueAtKeyPath = function (object, keyPath) {
   for (var key of Array.from(splitKeyPath(keyPath))) {
     if (isPlainObject(object)) {
       if (object.hasOwnProperty(key)) {
-        object = object[key];
+        object = object[key]
       } else {
-        return [undefined, false];
+        return [undefined, false]
       }
     } else {
-      return [undefined, true];
+      return [undefined, true]
     }
   }
-  return [object, true];
-};
+  return [object, true]
+}
 
 // Public: Fill in missing values in `target` with those from `defaults`,
 // recursing into any nested {Objects}
-var deepDefaults =  function(target, defaults) {
+var deepDefaults = function (target, defaults) {
   if (isPlainObject(target) && isPlainObject(defaults)) {
     for (var key of Array.from(Object.keys(defaults))) {
       if (target.hasOwnProperty(key)) {
-        deepDefaults(target[key], defaults[key]);
+        deepDefaults(target[key], defaults[key])
       } else {
-        target[key] = defaults[key];
+        target[key] = defaults[key]
       }
     }
   }
-};
+}
 
-var deepClone = function(value) {
+var deepClone = function (value) {
   if (Array.isArray(value)) {
-    return value.map(element => deepClone(element));
+    return value.map(element => deepClone(element))
   } else if (isPlainObject(value)) {
-    const result = {};
+    const result = {}
     for (var key of Array.from(Object.keys(value))) {
-      result[key] = deepClone(value[key]);
+      result[key] = deepClone(value[key])
     }
-    return result;
+    return result
   } else {
-    return value;
+    return value
   }
-};
+}
 
 module.exports = {
-  isPlainObject, checkValueAtKeyPath, deepClone, deepDefaults
-};
+  isPlainObject,
+  checkValueAtKeyPath,
+  deepClone,
+  deepDefaults
+}
