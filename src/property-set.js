@@ -1,10 +1,5 @@
-/*
- * decaffeinate suggestions:
- * DS102: Remove unnecessary code created because of implicit returns
- * Full docs: https://github.com/decaffeinate/decaffeinate/blob/main/docs/suggestions.md
- */
 let PropertySet
-const { deepExtend } = require('underscore-plus')
+const { deepExtend } = require('./utils')
 const { hasKeyPath, getValueAtKeyPath } = require('key-path-helpers')
 
 module.exports = PropertySet = class PropertySet {

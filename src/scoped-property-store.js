@@ -1,14 +1,6 @@
-/*
- * decaffeinate suggestions:
- * DS101: Remove unnecessary use of Array.from
- * DS102: Remove unnecessary code created because of implicit returns
- * DS104: Avoid inline assignments
- * DS207: Consider shorter variations of null checks
- * Full docs: https://github.com/decaffeinate/decaffeinate/blob/main/docs/suggestions.md
- */
 let ScopedPropertyStore
 const slick = require('atom-slick')
-const extend = require('lodash.assignin')
+const extend = require('lodash/assignIn')
 const { getValueAtKeyPath } = require('key-path-helpers')
 const { includeDeprecatedAPIs, deprecate } = require('grim')
 const { Disposable, CompositeDisposable } = require('event-kit')
