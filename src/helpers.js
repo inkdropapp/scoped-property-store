@@ -66,9 +66,27 @@ var deepClone = function (value) {
   }
 }
 
+var deepExtend = function (target) {
+  let result = target
+  let i = 0
+  while (++i < arguments.length) {
+    const object = arguments[i]
+    if (isPlainObject(result) && isPlainObject(object)) {
+      const keys = Object.keys(object)
+      for (let key of keys) {
+        result[key] = deepExtend(result[key], object[key])
+      }
+    } else {
+      result = deepClone(object)
+    }
+  }
+  return result
+}
+
 module.exports = {
   isPlainObject,
   checkValueAtKeyPath,
   deepClone,
-  deepDefaults
+  deepDefaults,
+  deepExtend
 }

@@ -1,6 +1,5 @@
 let ScopedPropertyStore
 const slick = require('atom-slick')
-const extend = require('lodash/assignIn')
 const { getValueAtKeyPath } = require('key-path-helpers')
 const { includeDeprecatedAPIs, deprecate } = require('grim')
 const { Disposable, CompositeDisposable } = require('event-kit')
@@ -10,7 +9,8 @@ const {
   isPlainObject,
   checkValueAtKeyPath,
   deepDefaults,
-  deepClone
+  deepClone,
+  deepExtend
 } = require('./helpers')
 
 // Public:
@@ -201,7 +201,7 @@ module.exports = ScopedPropertyStore = class ScopedPropertyStore {
       for (var setSelector in propertySets) {
         var propertySet = propertySets[setSelector]
         if (selector.isEqual(setSelector)) {
-          extend(properties, propertySet.properties)
+          deepExtend(properties, propertySet.properties)
         }
       }
     }
@@ -221,7 +221,7 @@ module.exports = ScopedPropertyStore = class ScopedPropertyStore {
       for (var setSelector in propertySets) {
         var propertySet = propertySets[setSelector]
         if (selector.isEqual(setSelector)) {
-          extend(properties, propertySet.properties)
+          deepExtend(properties, propertySet.properties)
         }
       }
     }

@@ -1,5 +1,5 @@
 let PropertySet
-const { deepExtend } = require('./utils')
+const { deepExtend } = require('./helpers')
 const { hasKeyPath, getValueAtKeyPath } = require('key-path-helpers')
 
 module.exports = PropertySet = class PropertySet {
